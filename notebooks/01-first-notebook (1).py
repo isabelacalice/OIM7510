@@ -137,12 +137,6 @@ def _(freight_charges):
     return
 
 
-@app.cell
-def _(freight_charges):
-    total=sum(freight_charges)
-    return (total,)
-
-
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
@@ -189,8 +183,7 @@ def _(s):
 
 @app.cell
 def _():
-    order = 3
-    return (order,)
+    return
 
 
 @app.cell
@@ -200,8 +193,8 @@ def _(order):
 
 
 @app.cell
-def _(total):
-    total
+def _(totals):
+    totals
     return
 
 
@@ -313,6 +306,72 @@ def _(mo):
     return
 
 
+@app.cell
+def _(freight_charges):
+    freight_charges[-1]
+    return
+
+
+@app.cell
+def _(freight_charges):
+    freight_charges[:3]
+    return
+
+
+@app.cell
+def _(orders):
+    orders[0]
+    return
+
+
+@app.cell
+def _(freight_charges):
+    freight_charges[0]
+    return
+
+
+@app.cell
+def _():
+    category="Confections"
+    return (category,)
+
+
+@app.cell
+def _(category):
+    len(category)
+    return
+
+
+@app.cell
+def _(orders):
+    sum(orders)
+    return
+
+
+@app.cell
+def _(orders):
+    orders*2
+    return
+
+
+@app.cell
+def _(freight_charges, orders):
+    orders + freight_charges
+    return
+
+
+@app.cell
+def _(freight_charges):
+    sorted(freight_charges)
+    return
+
+
+@app.cell
+def _(freight_charges):
+    sorted(freight_charges,reverse=True)
+    return
+
+
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
@@ -339,6 +398,30 @@ def _(mo):
     return
 
 
+@app.cell
+def _(freight_charges):
+    type(freight_charges[0])
+    return
+
+
+@app.cell
+def _(orders):
+    type(orders[0])
+    return
+
+
+@app.cell
+def _():
+    type("Confections")
+    return
+
+
+@app.cell
+def _(freight_charges):
+    type(freight_charges[0]>20)
+    return
+
+
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
@@ -349,6 +432,18 @@ def _(mo):
     1. `"16.75" + "22.25"`
     2. `16.75 + "22.25"`
     """)
+    return
+
+
+@app.cell
+def _():
+    16.75+22.25
+    return
+
+
+@app.cell
+def _():
+    "16.75"+"22.25"
     return
 
 
@@ -386,6 +481,18 @@ def _(mo):
     return
 
 
+@app.cell
+def _(freight_charges):
+    freight_charges[0]>20
+    return
+
+
+@app.cell
+def _(freight_charges):
+    freight_charges[-1]==max(freight_charges)
+    return
+
+
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
@@ -412,6 +519,12 @@ def _(mo):
     return
 
 
+@app.cell
+def _(freight_charges, orders):
+    print(f"Order {orders[0]} paid ${freight_charges[0]:.2f} in freight.")
+    return
+
+
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
@@ -421,6 +534,12 @@ def _(mo):
 
     Your sentence should show `$120.50` and `$24.10`.
     """)
+    return
+
+
+@app.cell
+def _(freight_charges, total):
+    print(f"The total freight is ${total:.2f} and the average charge is ${total / len(freight_charges):.2f}.")
     return
 
 
@@ -456,6 +575,16 @@ def _(mo):
     return
 
 
+@app.cell
+def _(freight_charges):
+    over_20 = []
+    for charge in freight_charges:
+        if charge > 20:
+            over_20.append(charge)
+    over_20
+    return
+
+
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
@@ -471,6 +600,35 @@ def _(mo):
 
     With the list as it started, your sentence should show three charges and `$59.25`.
     """)
+    return
+
+
+@app.cell
+def _(freight_charges):
+    under_25 = []
+
+    for freight in freight_charges:
+        if freight < 25:
+            under_25.append(freight)
+
+    print(f"There are {len(under_25)} charges, and they add up to ${sum(under_25):.2f}.")
+    return
+
+
+@app.cell
+def _(freight_charges):
+    under_or_equal_25 = []
+
+    for freight_value in freight_charges:
+        if freight_value <= 25:
+            under_or_equal_25.append(freight_value)
+
+    print(f"There are {len(under_or_equal_25)} charges, and they add up to ${sum(under_or_equal_25):.2f}.")
+    return
+
+
+@app.cell
+def _():
     return
 
 
@@ -512,6 +670,21 @@ def _(mo):
     return
 
 
+@app.cell
+def _():
+    import pandsa
+
+    return
+
+
+app._unparsable_cell(
+    r"""
+    Python could not find a package called pandsa because the package name is misspelled
+    """,
+    name="_"
+)
+
+
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
@@ -521,6 +694,12 @@ def _(mo):
 
     `max(["9.50", "16.75", "22.25"])`
     """)
+    return
+
+
+@app.cell
+def _():
+    max(["9.50", "16.75", "22.25"])
     return
 
 
@@ -599,6 +778,24 @@ def _(mo):
     return
 
 
+@app.cell
+def _(freight_charges, orders):
+    import matplotlib.pyplot as plt
+
+    _fig, _ax = plt.subplots(figsize=(6, 2.6))
+    _ax.bar([str(_o) for _o in orders], freight_charges)
+    _ax.set_ylabel("freight")
+    _ax.set_xlabel("order")
+    _ax.set_title("Freight Charges by Order")
+    plt.gca()
+    return
+
+
+@app.cell
+def _():
+    return
+
+
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
@@ -657,6 +854,12 @@ def _(mo):
     > - Send the notebook to somebody outside this course and write down the question they asked
     """)
     return
+
+
+@app.cell
+def _(freight_charges):
+    total=sum(freight_charges)
+    return (total,)
 
 
 if __name__ == "__main__":
