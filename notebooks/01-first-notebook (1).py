@@ -43,6 +43,12 @@ app = marimo.App(width="medium", sql_output="pandas")
 
 
 @app.cell
+def _(freight_charges):
+    total=sum(freight_charges)
+    return (total,)
+
+
+@app.cell
 def _():
     import marimo as mo
 
@@ -779,19 +785,6 @@ def _(mo):
 
 
 @app.cell
-def _(freight_charges, orders):
-    import matplotlib.pyplot as plt
-
-    _fig, _ax = plt.subplots(figsize=(6, 2.6))
-    _ax.bar([str(_o) for _o in orders], freight_charges)
-    _ax.set_ylabel("freight")
-    _ax.set_xlabel("order")
-    _ax.set_title("Freight Charges by Order")
-    plt.gca()
-    return
-
-
-@app.cell
 def _():
     return
 
@@ -856,10 +849,43 @@ def _(mo):
     return
 
 
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
+    How long did my commute take each day last week, and what was the average commute time?
+    """)
+    return
+
+
 @app.cell
-def _(freight_charges):
-    total=sum(freight_charges)
-    return (total,)
+def _():
+    days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
+    commute_times = [35, 42, 35, 38, 40]
+    return (commute_times,)
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
+    Each number represents my commute time in minutes for that day.
+    """)
+    return
+
+
+@app.cell
+def _(commute_times):
+    sum(commute_times)
+    return
+
+
+@app.cell
+def _(commute_times):
+    clean_commute_times = []
+
+    for commute_time in commute_times:
+        if isinstance(commute_time, int):
+            clean_commute_times.append(commute_time)
+    return
 
 
 if __name__ == "__main__":
