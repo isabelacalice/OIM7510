@@ -6,9 +6,29 @@
   },
   "cells": [
     {
+      "id": "nJQc",
+      "code_hash": "7b916ddcf0a5cc445c3f872bf725de14",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
       "id": "Hbol",
       "code_hash": "1d0db38904205bec4d6f6f6a1f6cec3e",
-      "outputs": [],
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
       "console": []
     },
     {
@@ -989,38 +1009,6 @@
       "console": []
     },
     {
-      "id": "SlZy",
-      "code_hash": "f1cfe6bb39ae4dbeea111e34896992d8",
-      "outputs": [
-        {
-          "type": "error",
-          "ename": "exception",
-          "evalue": "No module named 'matplotlib'",
-          "traceback": null
-        }
-      ],
-      "console": [
-        {
-          "type": "stream",
-          "name": "stderr",
-          "text": "<span class=\"codehilite\"><div class=\"highlight\"><pre><span></span><span class=\"gt\">Traceback (most recent call last):</span>\n  File <span class=\"nb\">\"/var/folders/d8/5kdjbpgd2sq_qhrzxvwsslz40000gn/T/marimo_15856/__marimo__cell_SlZy_.py\"</span>, line <span class=\"m\">1</span>, in <span class=\"n\">&lt;module&gt;</span>\n<span class=\"w\">    </span><span class=\"kn\">import</span><span class=\"w\"> </span><span class=\"nn\">matplotlib.pyplot</span><span class=\"w\"> </span><span class=\"k\">as</span><span class=\"w\"> </span><span class=\"nn\">plt</span>\n<span class=\"gr\">ModuleNotFoundError</span>: <span class=\"n\">No module named 'matplotlib'</span>\n</pre></div>\n</span>",
-          "mimetype": "application/vnd.marimo+traceback"
-        },
-        {
-          "type": "stream",
-          "name": "stdout",
-          "text": "> /var/folders/d8/5kdjbpgd2sq_qhrzxvwsslz40000gn/T/marimo_15856/__marimo__cell_SlZy_.py(1)<module>()\n-> import matplotlib.pyplot as plt\n(Pdb) ",
-          "mimetype": "text/plain"
-        },
-        {
-          "type": "stream",
-          "name": "stdout",
-          "text": "",
-          "mimetype": "text/plain"
-        }
-      ]
-    },
-    {
       "id": "pAfF",
       "code_hash": null,
       "outputs": [],
@@ -1053,8 +1041,60 @@
       "console": []
     },
     {
-      "id": "nJQc",
-      "code_hash": "7b916ddcf0a5cc445c3f872bf725de14",
+      "id": "pSjh",
+      "code_hash": "8b2326e4ee50d6e2bfe95bc73e41af92",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">How long did my commute take each day last week, and what was the average commute time?</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "WqzR",
+      "code_hash": "c349e7f26275b70e07030169ecae4a55",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "kzdl",
+      "code_hash": "7ce4b72fe91a4177d992483067ebe40b",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Each number represents my commute time in minutes for that day.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "UnGl",
+      "code_hash": "38b41574e933472c5d9aae1b735e59da",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<pre class='text-xs'>190</pre>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "ytlB",
+      "code_hash": "0e50ac77e0676e93c508cc48e814f52d",
       "outputs": [
         {
           "type": "data",
