@@ -123,19 +123,6 @@
       "console": []
     },
     {
-      "id": "nJQc",
-      "code_hash": "7b916ddcf0a5cc445c3f872bf725de14",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/plain": ""
-          }
-        }
-      ],
-      "console": []
-    },
-    {
       "id": "Xref",
       "code_hash": "26b4c34487e23e3a6a8a25ca45d5c821",
       "outputs": [
@@ -256,7 +243,14 @@
     {
       "id": "Ljzt",
       "code_hash": null,
-      "outputs": [],
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
       "console": []
     },
     {
@@ -340,7 +334,14 @@
     {
       "id": "nWHF",
       "code_hash": "fcd5fe5a90d3e8ec5b572d836365a5bf",
-      "outputs": [],
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "application/json": "[10248, 10249, 10250, 10251, 10252]"
+          }
+        }
+      ],
       "console": []
     },
     {
@@ -351,6 +352,149 @@
           "type": "data",
           "data": {
             "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h1 id=\"explore\">\ud83d\ude4b Explore</h1>\n<span class=\"paragraph\">One line per cell. Write down what you expect before you run it. Every one of these\ndepends on the <strong>type</strong> of the thing you hand it.</span>\n<ol>\n<li><code>freight_charges[-1]</code></li>\n<li><code>freight_charges[:3]</code>, which is a <strong>slice</strong></li>\n<li><code>orders[0]</code> and <code>freight_charges[0]</code>. What do those two have in common?</li>\n<li><code>category = \"Confections\"</code>, then <code>len(category)</code>. <code>len</code> counted five things a moment ago. What is it counting now?</li>\n<li><code>sum(orders)</code>. It runs. Should it?</li>\n<li><code>orders * 2</code>, then <code>orders + freight_charges</code>. Neither one is an error.</li>\n<li><code>sorted(freight_charges)</code>, then <code>sorted(freight_charges, reverse=True)</code>. What did <code>reverse=True</code> change, and did <code>freight_charges</code> itself change?</li>\n</ol></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "lLKe",
+      "code_hash": "c0a7a809473e29effbb39c4685dd71f9",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<pre class='text-xs'>36.25</pre>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "NPzr",
+      "code_hash": "20bab0561e08ed42ac58e6591d9ef83f",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "application/json": "[\"text/plain+float:16.75\", \"text/plain+float:22.25\", \"text/plain+float:25.0\"]"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "enAQ",
+      "code_hash": "05ebc636a6e146738183f16d21239d8c",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<pre class='text-xs'>10248</pre>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "aITq",
+      "code_hash": "abd5a46c9b2d6515004aada631c3ff55",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<pre class='text-xs'>16.75</pre>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "aQXK",
+      "code_hash": "7b13a93f026a1ae4ae1dfba4cf7a1ae8",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "iFYo",
+      "code_hash": "b8cc9727d967b269366944c811a3f344",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<pre class='text-xs'>11</pre>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "GvOm",
+      "code_hash": "3185adb3fd9ee53e74b5778d920b025e",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<pre class='text-xs'>51250</pre>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "cSIj",
+      "code_hash": "6a0371b8b72d50a260e8cb64ebf461c3",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "application/json": "[10248, 10249, 10250, 10251, 10252, 10248, 10249, 10250, 10251, 10252]"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "RmCb",
+      "code_hash": "954c6a48329eec4c1e36f2a6e3b81139",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "application/json": "[10248, 10249, 10250, 10251, 10252, \"text/plain+float:16.75\", \"text/plain+float:22.25\", \"text/plain+float:25.0\", \"text/plain+float:20.25\", \"text/plain+float:36.25\"]"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "voLT",
+      "code_hash": "c868ee09c8177da4fbaedcb30ed7efbe",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "application/json": "[\"text/plain+float:16.75\", \"text/plain+float:20.25\", \"text/plain+float:22.25\", \"text/plain+float:25.0\", \"text/plain+float:36.25\"]"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "tYAc",
+      "code_hash": "be16dfb18801ebfb15ff45819f9baf0f",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "application/json": "[\"text/plain+float:36.25\", \"text/plain+float:25.0\", \"text/plain+float:22.25\", \"text/plain+float:20.25\", \"text/plain+float:16.75\"]"
           }
         }
       ],
@@ -389,6 +533,58 @@
       "console": []
     },
     {
+      "id": "FRsK",
+      "code_hash": "5f067fc907c25f879dff5a986b2f82d9",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<pre class='text-xs'>&lt;class &#x27;float&#x27;&gt;</pre>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Agad",
+      "code_hash": "eea68878f8615292cd87b87f96591107",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<pre class='text-xs'>&lt;class &#x27;int&#x27;&gt;</pre>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "oOTz",
+      "code_hash": "12733c57d63809f3c020466c3a4a6e5d",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<pre class='text-xs'>&lt;class &#x27;str&#x27;&gt;</pre>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "epqv",
+      "code_hash": "025f6b39bb54379193b86fd78208d7d2",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<pre class='text-xs'>&lt;class &#x27;bool&#x27;&gt;</pre>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
       "id": "TqIu",
       "code_hash": "e772d821a86328a255a3c0e7072f418c",
       "outputs": [
@@ -396,6 +592,32 @@
           "type": "data",
           "data": {
             "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h1 id=\"text-that-looks-like-a-number\">\ud83d\ude4b Text That Looks Like a Number</h1>\n<span class=\"paragraph\">Write down what each line gives, then put each one in a cell of your own.</span>\n<ol>\n<li><code>\"16.75\" + \"22.25\"</code></li>\n<li><code>16.75 + \"22.25\"</code></li>\n</ol></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "ooKj",
+      "code_hash": "27b7719ed16af3eb35d5047413f4c046",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<pre class='text-xs'>39.0</pre>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "zkMO",
+      "code_hash": "998cb1c38c597d650b08de168b33551b",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<pre class='text-xs'>&#x27;16.7522.25&#x27;</pre>"
           }
         }
       ],
@@ -422,6 +644,32 @@
           "type": "data",
           "data": {
             "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h1 id=\"compare-two-charges\">\u270f\ufe0f Compare Two Charges</h1>\n<span class=\"paragraph\">In cells of your own:</span>\n<ol>\n<li>Is the first charge above 20? <code>freight_charges[0] &gt; 20</code></li>\n<li>Is the last charge the largest? <code>freight_charges[-1] == max(freight_charges)</code></li>\n<li>Check the type of either answer with <code>type()</code>.</li>\n</ol>\n<span class=\"paragraph\"><code>==</code> asks whether two values are equal. A single <code>=</code> stores a value.</span>\n<span class=\"paragraph\">\ud83d\udcd6 Handbook: Python \u00a73 Expressions and operators</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "llzg",
+      "code_hash": "4651bf9a69bb46c268a7af280fe5d14d",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<pre class='text-xs'>False</pre>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "lSbF",
+      "code_hash": "f2f95268c49ef91f0cf38d932e321301",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<pre class='text-xs'>True</pre>"
           }
         }
       ],
@@ -460,6 +708,26 @@
       "console": []
     },
     {
+      "id": "bXYV",
+      "code_hash": "ab81ca09e82b5615c45e533a8eb8a2d5",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "Order 10248 paid $16.75 in freight.\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
       "id": "ZBYS",
       "code_hash": "ae8593286258fa717ee70a219c0780b9",
       "outputs": [
@@ -471,6 +739,26 @@
         }
       ],
       "console": []
+    },
+    {
+      "id": "IUqy",
+      "code_hash": "6ff9a2cea167513f865b1da85febff58",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "The total freight is $120.50 and the average charge is $24.10.\n",
+          "mimetype": "text/plain"
+        }
+      ]
     },
     {
       "id": "aLJB",
@@ -505,6 +793,19 @@
       "console": []
     },
     {
+      "id": "DRTp",
+      "code_hash": "99d2afc68739f124c36b434e4f86adcf",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "application/json": "[\"text/plain+float:22.25\", \"text/plain+float:25.0\", \"text/plain+float:20.25\", \"text/plain+float:36.25\"]"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
       "id": "AjVT",
       "code_hash": "eaff85162f208add7648c4d43810498a",
       "outputs": [
@@ -515,6 +816,52 @@
           }
         }
       ],
+      "console": []
+    },
+    {
+      "id": "Affu",
+      "code_hash": "ce011fb41ae1b4db4e07139f6768b012",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "There are 3 charges, and they add up to $59.25.\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "uIBT",
+      "code_hash": "50e684a43c7d9e1acf9b9c5e8d34c730",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "There are 4 charges, and they add up to $84.25.\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "coKB",
+      "code_hash": null,
+      "outputs": [],
       "console": []
     },
     {
@@ -544,6 +891,39 @@
       "console": []
     },
     {
+      "id": "mYQi",
+      "code_hash": "fee9f277be8055a99c264f94180158e3",
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "exception",
+          "evalue": "No module named 'pandsa'",
+          "traceback": null
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stderr",
+          "text": "<span class=\"codehilite\"><div class=\"highlight\"><pre><span></span><span class=\"gt\">Traceback (most recent call last):</span>\n  File <span class=\"nb\">\"/var/folders/d8/5kdjbpgd2sq_qhrzxvwsslz40000gn/T/marimo_15856/__marimo__cell_mYQi_.py\"</span>, line <span class=\"m\">1</span>, in <span class=\"n\">&lt;module&gt;</span>\n<span class=\"w\">    </span><span class=\"kn\">import</span><span class=\"w\"> </span><span class=\"nn\">pandsa</span>\n<span class=\"gr\">ModuleNotFoundError</span>: <span class=\"n\">No module named 'pandsa'</span>\n</pre></div>\n</span>",
+          "mimetype": "application/vnd.marimo+traceback"
+        }
+      ]
+    },
+    {
+      "id": "VxAr",
+      "code_hash": "3421ee6ecb15b088918a1cb749ee566e",
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "syntax",
+          "evalue": "line 1\n    Python could not find a package called pandsa because the package name is misspelled\n           ^^^^^\nSyntaxError: invalid syntax\n",
+          "traceback": []
+        }
+      ],
+      "console": []
+    },
+    {
       "id": "aqbW",
       "code_hash": "830409d9361fd16a4b5b79956f3dae62",
       "outputs": [
@@ -551,6 +931,19 @@
           "type": "data",
           "data": {
             "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h1 id=\"a-line-that-does-not-break\">\ud83d\ude4b A Line That Does Not Break</h1>\n<span class=\"paragraph\">Write down what this gives, then run it in a cell of your own.</span>\n<span class=\"paragraph\"><code>max([\"9.50\", \"16.75\", \"22.25\"])</code></span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "sXuj",
+      "code_hash": "3ecb5a15eac460ce6adc166848ad8c47",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<pre class='text-xs'>&#x27;9.50&#x27;</pre>"
           }
         }
       ],
@@ -596,6 +989,44 @@
       "console": []
     },
     {
+      "id": "SlZy",
+      "code_hash": "f1cfe6bb39ae4dbeea111e34896992d8",
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "exception",
+          "evalue": "No module named 'matplotlib'",
+          "traceback": null
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stderr",
+          "text": "<span class=\"codehilite\"><div class=\"highlight\"><pre><span></span><span class=\"gt\">Traceback (most recent call last):</span>\n  File <span class=\"nb\">\"/var/folders/d8/5kdjbpgd2sq_qhrzxvwsslz40000gn/T/marimo_15856/__marimo__cell_SlZy_.py\"</span>, line <span class=\"m\">1</span>, in <span class=\"n\">&lt;module&gt;</span>\n<span class=\"w\">    </span><span class=\"kn\">import</span><span class=\"w\"> </span><span class=\"nn\">matplotlib.pyplot</span><span class=\"w\"> </span><span class=\"k\">as</span><span class=\"w\"> </span><span class=\"nn\">plt</span>\n<span class=\"gr\">ModuleNotFoundError</span>: <span class=\"n\">No module named 'matplotlib'</span>\n</pre></div>\n</span>",
+          "mimetype": "application/vnd.marimo+traceback"
+        },
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "> /var/folders/d8/5kdjbpgd2sq_qhrzxvwsslz40000gn/T/marimo_15856/__marimo__cell_SlZy_.py(1)<module>()\n-> import matplotlib.pyplot as plt\n(Pdb) ",
+          "mimetype": "text/plain"
+        },
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "pAfF",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
+    },
+    {
       "id": "yCnT",
       "code_hash": "3d8a46394aacb87f7fbca6175b3d5175",
       "outputs": [
@@ -616,6 +1047,19 @@
           "type": "data",
           "data": {
             "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h1 id=\"a-question-about-your-own-numbers\">\ud83d\ude80 A Question About Your Own Numbers</h1>\n<span class=\"paragraph\">Pick a question from your own work or life that a short list of numbers can answer, such as what you spent on groceries each month since March, or how many minutes your commute took each day last week.</span>\n<span class=\"paragraph\"><strong>Where it goes.</strong> A new notebook in your <code>notebooks/</code> folder, made from the page that <code>uv run marimo edit</code> opens. Commit and push it before the next session.</span>\n<span class=\"paragraph\"><strong>What you write.</strong> Code, in cells. Every number in your answer comes out of a cell, and none is typed into a sentence by hand. The question, the rule and the check go in markdown cells.</span>\n<span class=\"paragraph\"><strong>An answer looks like this:</strong> <code>Groceries from March to August cost $1,284.50, or $214.08 a month.</code></span>\n<span class=\"paragraph\"><strong>Done looks like this:</strong></span>\n<ol>\n<li>A markdown cell with the question.</li>\n<li>Your numbers in one list, and a second list of labels (months, dates, names) in the same order. One sentence in markdown says what a single number in your list stands for.</li>\n<li>One value that arrived broken, as text or with a symbol in it, such as <code>\"n/a\"</code> or <code>\"$1,200\"</code>. Run your calculation once with it in the list and write the last line of the error in your own words. Then choose a rule for that value, state it in markdown, and apply it in code: build a clean list with a <code>for</code> loop and an <code>if</code>, the way Keep Only Some does. Delete the cell that raised, so the notebook runs clean.</li>\n<li>Your answer as one sentence printed with an f-string, from the clean list, with the numbers formatted to two decimal places.</li>\n<li><strong>How I know these numbers are right</strong>: one check done a different way, such as by hand, on a calculator, or in a second cell. In OIM6301 the check has to be a cell that runs.</li>\n<li>One number changed, and a note that names what updated by itself.</li>\n</ol>\n<span class=\"paragraph\"><strong>Where AI sits in this</strong></span>\n<table>\n<thead>\n<tr>\n<th></th>\n<th></th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><strong>By hand</strong></td>\n<td>Nothing in this project</td>\n</tr>\n<tr>\n<td><strong>AI writes, you check</strong></td>\n<td>Any line of code. Ask the agent in marimo's panel, which runs on your Babson key, and read each cell before you click <strong>Keep cell</strong></td>\n</tr>\n<tr>\n<td><strong>You direct, you verify</strong></td>\n<td>The check in point 5. Choose how to check the number, and explain why that check is independent</td>\n</tr>\n<tr>\n<td><strong>You choose the question</strong></td>\n<td>The question, and the rule for the value that arrived broken</td>\n</tr>\n</tbody>\n</table>\n<span class=\"paragraph\"><strong>The verification question.</strong> Pick one piece of AI output you did not accept as-is. What did it give you, what did you change, and how did you know? Point to the commit or the cell. If the agent got it right the first time: what did you do to verify that?</span>\n<blockquote>\n<span class=\"paragraph\"><strong>Advanced</strong></span>\n<ul>\n<li>Add a slider with <code>mo.ui.slider</code> that changes one assumption, and make your sentence follow it</li>\n<li>Draw your list as a bar chart with its labels, after running <code>uv add matplotlib</code></li>\n<li>Answer a second question that needs something not covered yet, such as which month changed most from the one before, and explain the agent's line in your own words</li>\n<li>Send the notebook to somebody outside this course and write down the question they asked</li>\n</ul>\n</blockquote></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "nJQc",
+      "code_hash": "7b916ddcf0a5cc445c3f872bf725de14",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
           }
         }
       ],
