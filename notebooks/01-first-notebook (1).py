@@ -57,6 +57,11 @@ def _():
 
 @app.cell
 def _():
+    return
+
+
+@app.cell
+def _():
     print("hi")
     print("byeeeeee")
     return
@@ -875,16 +880,6 @@ def _(mo):
 @app.cell
 def _(commute_times):
     sum(commute_times)
-    return
-
-
-@app.cell
-def _(commute_times):
-    clean_commute_times = []
-
-    for commute_time in commute_times:
-        if isinstance(commute_time, int):
-            clean_commute_times.append(commute_time)
     return
 
 
