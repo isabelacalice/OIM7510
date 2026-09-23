@@ -32,6 +32,12 @@
       "console": []
     },
     {
+      "id": "NXdL",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
+    },
+    {
       "id": "yZiI",
       "code_hash": "9bebeace10bb07ab220ef13e8c940187",
       "outputs": [
@@ -1087,19 +1093,6 @@
           "type": "data",
           "data": {
             "text/html": "<pre class='text-xs'>190</pre>"
-          }
-        }
-      ],
-      "console": []
-    },
-    {
-      "id": "ytlB",
-      "code_hash": "0e50ac77e0676e93c508cc48e814f52d",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/plain": ""
           }
         }
       ],
