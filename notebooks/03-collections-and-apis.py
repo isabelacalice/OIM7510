@@ -10,7 +10,7 @@
 
 import marimo
 
-__generated_with = "0.24.2"
+__generated_with = "0.25.1"
 app = marimo.App(width="medium", sql_output="polars")
 
 
@@ -53,6 +53,11 @@ def _(mo):
     uv add requests
     ```
     """)
+    return
+
+
+@app.cell
+def _():
     return
 
 
@@ -155,11 +160,11 @@ def _(mo):
 
     Several questions below ask for a sentence. This cell is where they go. Click into it, write under the letter, and press `Ctrl+Enter` (Windows) or `Cmd+Enter` (macOS).
 
-    **B ·**
+    **B ·** France, Germany, Brazil, and the USA had the most orders, with 4 orders each.
 
-    **C ·**
+    **C ·** I would use a list for the lines on one order because they can be added, removed, or reordered, a set for customers because each customer should appear only once, a dictionary for units sold because each value is looked up by product name, and a tuple for shipment information because it should not change once recorded.
 
-    **D ·**
+    **D ·** I'd rather work with the list of tuples because each holding has three fixed values, and unpacking them makes the calculation simple.
 
     **G ·**
     """)
@@ -190,6 +195,18 @@ def _():
     closing_prices = {"AAPL": 260.81, "NVDA": 186.00, "MSFT": 404.88, "GOOG": 308.42}
     closing_prices
     return (closing_prices,)
+
+
+@app.cell
+def _(closing_prices):
+    closing_prices["AAPL"]
+    return
+
+
+@app.cell
+def _(closing_prices):
+    closing_prices.get("TSLA")
+    return
 
 
 @app.cell(hide_code=True)
@@ -234,6 +251,17 @@ def _():
     first_holding = ("GOOG", 100, 131.36)
     first_holding[0], len(first_holding)
     return (first_holding,)
+
+
+@app.cell
+def _(ship_countries):
+    country_counts = {}
+
+    for _country in ship_countries:
+        country_counts[_country] = country_counts.get(_country, 0) + 1
+
+    country_counts
+    return
 
 
 @app.cell(hide_code=True)
@@ -443,6 +471,22 @@ def _():
         ("TSLA", 150, 255.70),
     ]
     holdings
+    return (holdings,)
+
+
+@app.cell
+def _(holdings):
+    total_cost = 0
+    for _symbol, _shares, _price in holdings:
+        total_cost = total_cost + _shares * _price
+    total_cost
+    return
+
+
+@app.cell
+def _(holdings):
+    agent_total_cost = sum(_shares * _price for _symbol, _shares, _price in holdings)
+    agent_total_cost
     return
 
 
