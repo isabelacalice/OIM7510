@@ -134,22 +134,15 @@ def _(mo):
 
 @app.cell
 def _():
-    cost = float(input ("Enter the cost: "))
-    tax = float(input("Enter tax: "))
-    return cost, tax
+    cost_str = "16.5"
+    tax_str = "3.25"
+    return cost_str, tax_str
 
 
 @app.cell
-def _():
-    cost = "16.5"
-    tax = "3.25"
-    return cost, tax
-
-
-@app.cell
-def _():
-    cost = float(cost)
-    tax = float(tax)
+def _(cost_str, tax_str):
+    cost = float(cost_str)
+    tax = float(tax_str)
     return cost, tax
 
 
