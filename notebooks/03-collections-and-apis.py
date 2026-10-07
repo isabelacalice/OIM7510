@@ -10,7 +10,7 @@
 
 import marimo
 
-__generated_with = "0.25.1"
+__generated_with = "0.24.2"
 app = marimo.App(width="medium", sql_output="polars")
 
 
@@ -445,6 +445,17 @@ def _(mo):
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
+    1. List
+    2. Set
+    3. Dict
+    4. Tuple
+    """)
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
     ## ✏️ D · The portfolio again
 
     Notebook 2 held the six holdings as a list of dictionaries. Here they are as a list of tuples, one holding per tuple.
@@ -477,16 +488,14 @@ def _():
 @app.cell
 def _(holdings):
     total_cost = 0
-    for _symbol, _shares, _price in holdings:
-        total_cost = total_cost + _shares * _price
-    total_cost
-    return
-
-
-@app.cell
-def _(holdings):
-    agent_total_cost = sum(_shares * _price for _symbol, _shares, _price in holdings)
-    agent_total_cost
+    # use a for loop to iterate every stock to get the share and price of every stock, then calculate the subtotal and add the subtotal to total_cost
+    for stock in holdings:
+        print(type(stock))
+        shares = stock[1]
+        price = stock [2]
+        subtotal = shares * price
+        total_cost += subtotal
+        total_cost
     return
 
 
@@ -556,6 +565,7 @@ def _(requests):
         "&temperature_unit=fahrenheit&wind_speed_unit=mph"
         "&timezone=America/New_York"
     )
+    print(babson_url)
     babson_reply = requests.get(babson_url, timeout=10)
     babson_reply.status_code
     return (babson_reply,)
@@ -587,6 +597,12 @@ def _(mo):
 @app.cell
 def _(babson_weather):
     babson_weather["current"]["temperature_2m"]
+    return
+
+
+@app.cell
+def _(babson_weather):
+    babson_weather["current"]["wind_speed_10m"]
     return
 
 
@@ -634,7 +650,7 @@ def _(mo):
 @app.cell
 def _(requests):
     misspelled_reply = requests.get(
-        "https://geocoding-api.open-meteo.com/v1/search?name=Wellesly&count=1",
+        "https://geocoding-api.open-meteo.com/v1/search?name=Wellesley&count=1",
         timeout=10,
     )
     misspelled_reply.status_code, misspelled_reply.json()
@@ -679,6 +695,20 @@ def _(mo):
     **E · The wind in a sentence.** Add a cell that takes the wind speed and its unit out of `babson_weather` and puts both into one sentence with an f-string. *Check yourself: the unit reads `mp/h`, which is how this service writes miles per hour.*
     """)
     return
+
+
+app._unparsable_cell(
+    r"""
+    babson_wind = babson_weather["current"]
+    ["wind_speed_10m"]
+    babson_wind_unit =
+    babson_weather["current_units"]
+     ["wind_speed_10m"]
+    f"The wind at Babson is {babson_wind}
+    {babson_wind_unit}]
+    """,
+    name="_"
+)
 
 
 @app.cell(hide_code=True)
