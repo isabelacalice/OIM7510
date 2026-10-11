@@ -89,8 +89,61 @@ def _(mo):
 
 @app.cell
 def _():
-    # Your inputs.
-    return
+    day_names = {
+        1: "Monday",
+        2: "Tuesday",
+        3: "Wednesday",
+        4: "Thursday",
+        5: "Friday"
+    }
+
+    first_day = 1
+    high_priority_lead = 2
+    medium_priority_lead = 1
+    low_priority_lead = 0
+
+    tasks = [
+        {
+            "Task": "Finish marketing assignment",
+            "DeadlineDay": 3,
+            "EstimatedHours": 2.0,
+            "Priority": "High"
+        },
+        {
+            "Task": "Send sponsorship emails",
+            "DeadlineDay": 5,
+            "EstimatedHours": 1.0,
+            "Priority": "Medium"
+        },
+        {
+            "Task": "Prepare finance case",
+            "DeadlineDay": 4,
+            "EstimatedHours": 2.5,
+            "Priority": "High"
+        },
+        {
+            "Task": "Review class notes",
+            "DeadlineDay": 5,
+            "EstimatedHours": 1.5,
+            "Priority": "Low"
+        },
+        {
+            "Task": "Prepare presentation",
+            "DeadlineDay": 5,
+            "EstimatedHours": 2.0,
+            "Priority": "Medium"
+        }
+    ]
+
+    tasks
+    return (
+        day_names,
+        first_day,
+        high_priority_lead,
+        low_priority_lead,
+        medium_priority_lead,
+        tasks,
+    )
 
 
 @app.cell(hide_code=True)
@@ -104,8 +157,36 @@ def _(mo):
 
 
 @app.cell
-def _():
-    return
+def _(
+    day_names,
+    first_day,
+    high_priority_lead,
+    low_priority_lead,
+    medium_priority_lead,
+    tasks,
+):
+    weekly_plan = {}
+
+    for day_number in day_names:
+        weekly_plan[day_number] = []
+
+    for task in tasks:
+        if task["Priority"] == "High":
+            lead_days = high_priority_lead
+        elif task["Priority"] == "Medium":
+            lead_days = medium_priority_lead
+        else:
+            lead_days = low_priority_lead
+
+        suggested_day = task["DeadlineDay"] - lead_days
+
+        if suggested_day < first_day:
+            suggested_day = first_day
+
+        weekly_plan[suggested_day].append(task)
+
+    weekly_plan
+    return (weekly_plan,)
 
 
 @app.cell(hide_code=True)
@@ -119,7 +200,26 @@ def _(mo):
 
 
 @app.cell
-def _():
+def _(day_names, weekly_plan):
+    print(f"{'Day':<10} {'Task':<28} {'Priority':<10} {'Deadline':<10} {'Hours':>6}")
+
+    for _answer_day in day_names:
+        for _answer_task in weekly_plan[_answer_day]:
+            print(
+                f"{day_names[_answer_day]:<10} "
+                f"{_answer_task['Task']:<28} "
+                f"{_answer_task['Priority']:<10} "
+                f"{day_names[_answer_task['DeadlineDay']]:<10} "
+                f"{_answer_task['EstimatedHours']:>6.1f}"
+            )
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
+    This planner takes 5 tasks and spreads them across the week so none are left for the last minute, with Thursday carrying the heaviest load at 3.0 hours.
+    """)
     return
 
 
@@ -134,7 +234,23 @@ def _(mo):
 
 
 @app.cell
-def _():
+def _(tasks, weekly_plan):
+    _input_task_count = len(tasks)
+    _scheduled_task_count = 0
+
+    for _check_day in weekly_plan:
+        _scheduled_task_count = _scheduled_task_count + len(weekly_plan[_check_day])
+
+    print(f"Tasks entered: {_input_task_count}")
+    print(f"Tasks scheduled: {_scheduled_task_count}")
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
+    I compared the number of tasks entered with the number of tasks in the final schedule, and both were 5.
+    """)
     return
 
 
@@ -146,6 +262,9 @@ def _(mo):
     *Pick one piece of AI output you did not accept as-is. What did it give you, what did you change, and how did you know? Point to the commit or the cell.*
 
     *If the agent got it right the first time: what did you do to verify that?*
+
+
+    The agent suggested code for printing the weekly schedule, but the first version reused the variable names day_number and task. Marimo showed that those variables had already been defined in another cell, so I changed them to _answer_day and _answer_task. I verified the change by running the cell and checking that all five tasks appeared correctly in the weekly schedule.
     """)
     return
 
@@ -156,6 +275,30 @@ def _(mo):
     ## 8. Going Further
 
     *Take at least one step past the main task, in any direction, and use your agent as much as you like. It does not have to work. State what you tried, what you found, and where it is in this notebook.*
+    """)
+    return
+
+
+@app.cell
+def _(day_names, weekly_plan):
+    daily_hours = {}
+
+    for _day in day_names:
+        daily_hours[_day] = 0
+
+    for _day in weekly_plan:
+        for _task in weekly_plan[_day]:
+            daily_hours[_day] = daily_hours[_day] + _task["EstimatedHours"]
+
+    for _day in day_names:
+        print(f"{day_names[_day]}: {daily_hours[_day]:.1f} hours")
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
+    I went one step further by calculating the total estimated workload for each day. I found that the planner can show not only which tasks should be completed each day, but also how many hours of work are scheduled for that day. I added this calculation in Section 8.
     """)
     return
 
