@@ -166,7 +166,7 @@ def _(mo):
 
     **D ·** I'd rather work with the list of tuples because each holding has three fixed values, and unpacking them makes the calculation simple.
 
-    **G ·**
+    **G ·** The first result for 'Babson Park' is in Florida, not Massachusetts, code that always grabs [0] would use the wrong place without any error.
     """)
     return
 
@@ -488,14 +488,9 @@ def _():
 @app.cell
 def _(holdings):
     total_cost = 0
-    # use a for loop to iterate every stock to get the share and price of every stock, then calculate the subtotal and add the subtotal to total_cost
-    for stock in holdings:
-        print(type(stock))
-        shares = stock[1]
-        price = stock [2]
-        subtotal = shares * price
-        total_cost += subtotal
-        total_cost
+    for _symbol, _shares, _price in holdings:
+        total_cost += _shares * _price
+    total_cost
     return
 
 
@@ -697,18 +692,12 @@ def _(mo):
     return
 
 
-app._unparsable_cell(
-    r"""
-    babson_wind = babson_weather["current"]
-    ["wind_speed_10m"]
-    babson_wind_unit =
-    babson_weather["current_units"]
-     ["wind_speed_10m"]
-    f"The wind at Babson is {babson_wind}
-    {babson_wind_unit}]
-    """,
-    name="_"
-)
+@app.cell
+def _(babson_weather):
+    babson_wind = babson_weather["current"]["wind_speed_10m"]
+    babson_wind_unit = babson_weather["current_units"]["wind_speed_10m"]
+    f"The wind at Babson is {babson_wind} {babson_wind_unit}"
+    return
 
 
 @app.cell(hide_code=True)
@@ -718,6 +707,16 @@ def _(mo):
     """)
     return
 
+@app.cell
+def _(requests):
+    wellesley_reply = requests.get(
+        "https://geocoding-api.open-meteo.com/v1/search?name=Wellesley&count=1",
+        timeout=10,
+    )
+    wellesley_results = wellesley_reply.json()["results"]
+    wellesley_place = wellesley_results[0]
+    wellesley_place["latitude"], wellesley_place["longitude"], wellesley_place["admin1"]
+    return
 
 @app.cell(hide_code=True)
 def _(mo):
@@ -728,6 +727,14 @@ def _(mo):
     """)
     return
 
+@app.cell
+def _(requests):
+    babson_park_reply = requests.get(
+        "https://geocoding-api.open-meteo.com/v1/search?name=Babson%20Park&count=1",
+        timeout=10,
+    )
+    babson_park_reply.json()["results"][0]
+    return
 
 @app.cell(hide_code=True)
 def _(mo):

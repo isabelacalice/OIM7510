@@ -203,13 +203,42 @@ def _(mo):
 def _(towns_from_file):
     million_dollar_counts = {}
     for town in towns_from_file:
-        if int(town['average_single_family_value_dollars']) >= 1000000:
+        if int(town['average_single_family_value_dollars']) >= 2000000:
             county = town['county']
             if county not in million_dollar_counts:
                 million_dollar_counts[county] = 0
             million_dollar_counts[county] += 1
 
     million_dollar_counts
+    return
+
+
+@app.cell
+def _(towns_from_file):
+    smallest_town = towns_from_file[0]["name"]
+    smallest_population = int(towns_from_file[0]["population"])
+
+    largest_town = towns_from_file[0]["name"]
+    largest_population = int(towns_from_file[0]["population"])
+
+    for _town in towns_from_file:
+        _population = int(_town["population"])
+
+        if _population < smallest_population:
+            smallest_town = _town["name"]
+            smallest_population = _population
+
+        if _population > largest_population:
+            largest_town = _town["name"]
+            largest_population = _population
+
+    smallest_town, smallest_population, largest_town, largest_population
+
+    return
+
+
+@app.cell
+def _():
     return
 
 
@@ -275,7 +304,7 @@ def _(mo):
 @app.cell
 def _(pl, town_table):
     (
-        town_table.filter(pl.col("average_single_family_value_dollars") >= 1_000_000)
+        town_table.filter(pl.col("average_single_family_value_dollars") >= 2_000_000)
         .group_by("county")
         .agg(pl.len().alias("towns"))
         .sort("towns", descending=True)
@@ -332,6 +361,27 @@ def _(mo):
     """)
     return
 
+@app.cell
+def _(pl, town_table):
+    town_table.group_by("county").agg(pl.len().alias("towns")).sort("towns", descending=True)
+    return
+
+
+@app.cell
+def _(ma_counties, pl):
+    pl.DataFrame(ma_counties)
+    return
+
+
+@app.cell
+def _(pl, town_table):
+    (
+        town_table.filter(pl.col("population") > 50_000)
+        .sort("average_single_family_bill_dollars", descending=True)
+        .head(5)
+    )
+    return
+
 
 @app.cell(hide_code=True)
 def _(mo):
@@ -351,7 +401,7 @@ def _(mo):
         f"""
         SELECT county, COUNT(*) AS towns
         FROM town_table
-        WHERE average_single_family_value_dollars >= 1000000
+        WHERE average_single_family_value_dollars >= 2000000
         GROUP BY county
         ORDER BY towns DESC
         """
@@ -382,6 +432,14 @@ def _(mo):
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
+    Raising the bar to $2,000,000 can only lower each county's count, or leave it the same, since it is a stricter test than $1,000,000; no county's count can go up.
+    """)
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
     # 4. The First Chart
 
     Draw the share. `.plot.bar()` on a DataFrame draws one bar per row, with a library called **altair**. `alt.X()` and `alt.Y()` name each axis's column and give it a title a reader can understand, and `.properties(title=...)` states what the chart shows.
@@ -392,7 +450,6 @@ def _(mo):
     Wrap it in `mo.ui.altair_chart()`, which is how marimo shows an altair chart of any size.
     """)
     return
-
 
 @app.cell
 def _(alt, million_dollar_share, mo):
@@ -429,6 +486,29 @@ def _(mo):
 
     **Going further.** Color the bars or dots by a column with `color=`, and explain what the colors add.
     """)
+    return
+
+
+@app.cell
+def _(pl, town_table):
+    income_by_county = (
+        town_table.group_by("county")
+        .agg(pl.col("income_per_capita_dollars").mean().alias("average_income_per_capita"))
+        .sort("average_income_per_capita", descending=True)
+    )
+    income_by_county
+    return (income_by_county,)
+
+
+@app.cell
+def _(alt, income_by_county, mo):
+    income_chart = mo.ui.altair_chart(
+        income_by_county.plot.bar(
+            y=alt.Y("county", sort="-x", title="County"),
+            x=alt.X("average_income_per_capita", title="Average income per capita (dollars)"),
+        ).properties(title="Average income per capita by Massachusetts county")
+    )
+    income_chart
     return
 
 
