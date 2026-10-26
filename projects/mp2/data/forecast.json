@@ -1,0 +1,72 @@
+[
+  {
+    "date": "2026-10-25",
+    "high": 67.3,
+    "low": 28.6,
+    "rain_chance": 0,
+    "wind": 5.5,
+    "rules_broken": 0,
+    "passes": true,
+    "score": 3
+  },
+  {
+    "date": "2026-10-26",
+    "high": 69.3,
+    "low": 40.3,
+    "rain_chance": 5,
+    "wind": 9.0,
+    "rules_broken": 0,
+    "passes": true,
+    "score": 3
+  },
+  {
+    "date": "2026-10-27",
+    "high": 52.1,
+    "low": 39.2,
+    "rain_chance": 6,
+    "wind": 8.7,
+    "rules_broken": 1,
+    "passes": false,
+    "score": 2
+  },
+  {
+    "date": "2026-10-28",
+    "high": 56.4,
+    "low": 38.1,
+    "rain_chance": 0,
+    "wind": 4.8,
+    "rules_broken": 0,
+    "passes": true,
+    "score": 3
+  },
+  {
+    "date": "2026-10-29",
+    "high": 66.1,
+    "low": 44.7,
+    "rain_chance": 0,
+    "wind": 10.6,
+    "rules_broken": 0,
+    "passes": true,
+    "score": 3
+  },
+  {
+    "date": "2026-10-30",
+    "high": 71.0,
+    "low": 53.1,
+    "rain_chance": 1,
+    "wind": 13.4,
+    "rules_broken": 0,
+    "passes": true,
+    "score": 3
+  },
+  {
+    "date": "2026-10-31",
+    "high": 54.5,
+    "low": 43.9,
+    "rain_chance": 1,
+    "wind": 9.6,
+    "rules_broken": 1,
+    "passes": false,
+    "score": 2
+  }
+]
