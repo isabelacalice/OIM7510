@@ -76,7 +76,7 @@ def _(mo):
 
 @app.cell
 def _():
-    place = "Wellesley"
+    place = "Cambridge"
     state = "Massachusetts"
     lowest_high_f = 55
     highest_high_f = 80
@@ -311,6 +311,7 @@ def _(mo):
     # The get_coordinates function takes a place and a state as inputs. It searches the Open-Meteo geocoding API and returns the latitude, longitude, and matched place name. One line I had to understand better was result.get("admin1") == state, which checks whether the result belongs to the state entered by the user.
     # The get_daily_forecast function takes latitude and longitude as inputs. It requests the seven-day weather forecast and returns a list of dictionaries, with one dictionary for each day. One part I had to understand better was zip(), which lets the loop go through the date, temperature, rain, and wind lists at the same time and combine them into one daily record.
     # Prediction: I will change the place from Wellesley to Cambridge. I expect the coordinates and weather values to change, which may also change the recommended best day. I expect the table to still contain seven days because the forecast period does not change.
+    # Result: the table still has seven days, as expected. The coordinates and weather values did change slightly (for example, 2026-10-25 wind went from 5.5 mph in Wellesley to 7.3 mph in Cambridge). The best day stayed 2026-10-28 in both cases, since Wellesley and Cambridge are close together and got similar forecasts, so the recommended day did not change even though the underlying numbers did. My prediction was partly right: the values changed as I expected, but the best day itself did not change, which I had not predicted either way.
     """)
     return
 
