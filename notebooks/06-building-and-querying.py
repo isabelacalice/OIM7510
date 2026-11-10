@@ -413,6 +413,31 @@ def _(mo):
     return
 
 
+@app.cell
+def _(ask):
+    ask("""
+        SELECT county, count(*) AS towns
+        FROM towns
+        GROUP BY county
+        ORDER BY towns DESC
+    """)
+    return
+
+
+@app.cell
+def _(ask):
+    ask("SELECT count(*) AS towns FROM towns")
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
+    The sum of the per-county counts has to equal the row count of `towns` because `GROUP BY` sorts every row in `towns` into exactly one county group (each town has one `county` value), so adding the group counts back up just counts every row once.
+    """)
+    return
+
+
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
