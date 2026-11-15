@@ -228,7 +228,7 @@ def _(mo):
 def _(database, duckdb):
     with duckdb.connect(database) as _con:
         _con.execute("""
-            CREATE TABLE town_bills (
+            CREATE OR REPLACE TABLE town_bills (
                 town                                VARCHAR NOT NULL REFERENCES towns(name),
                 fiscal_year                         INTEGER NOT NULL,
                 average_single_family_bill_dollars  INTEGER NOT NULL,
@@ -409,31 +409,6 @@ def _(mo):
     3. For each county, the total population of its towns, and the share of those people living in towns with a bill over $10,000. Use `sum()` and a `CASE WHEN` inside it, or two queries. *Check yourself: the totals add up to 7,136,171.*
 
     **Going further.** Answer one question of your own about the towns with `GROUP BY`, and check it in polars on `town_rows`. Or download the TV show database from [Downloads](https://oim7510.github.io/downloads/), keep it out of your repository, and answer the two TV show questions from the topic slides.
-    """)
-    return
-
-
-@app.cell
-def _(ask):
-    ask("""
-        SELECT county, count(*) AS towns
-        FROM towns
-        GROUP BY county
-        ORDER BY towns DESC
-    """)
-    return
-
-
-@app.cell
-def _(ask):
-    ask("SELECT count(*) AS towns FROM towns")
-    return
-
-
-@app.cell(hide_code=True)
-def _(mo):
-    mo.md(r"""
-    The sum of the per-county counts has to equal the row count of `towns` because `GROUP BY` sorts every row in `towns` into exactly one county group (each town has one `county` value), so adding the group counts back up just counts every row once.
     """)
     return
 
